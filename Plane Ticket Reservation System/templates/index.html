@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+{% if not message %}
+	<a href="/login"><button>Login</button></a>
+	<a href="/register"><button>Register</button></a>
+{% endif %} 
+
+</br>
+</br>
+
+{% include 'table.html' %}
+
+</br>
+</br>
+
+<a href="/search_flight"><button>Search for flight</button></a>
+
+</body>
+
+</html>

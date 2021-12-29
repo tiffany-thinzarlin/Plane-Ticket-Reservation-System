@@ -1,0 +1,89 @@
+<html>
+
+<head>
+</head>
+<body>
+	<h1>Welcome {{name}}</h1> 
+{% if show_button %}    
+	<a href="/customer_flights"><button>View My Flight</button></a>
+	<a href="/search_flight"><button> Find Flights</button></a>
+	<a href="/purchase_ticket"><button> Purchase Ticket</button></a>
+	<a href="/rate"><button> Rate a Flight </button></a>
+	<a href="/trackmyspending"><button> Track Your Spending </button></a>
+	{% include 'table.html' %}
+{% else %}
+	<a href="/customer_home"><button> Back </button></a>
+	<style type="text/css">
+		table, th, td{
+			border: 1px solid black;
+		}
+	</style>
+	
+	<table>
+		<th>Ticket ID</th>
+		<th>Plane ID</th>
+		<th>Airline</th>
+		<th>Flight Number</th>
+		<th>Price</th>
+		<th>Status</th>
+		<th>Depart</th>
+		<th>Arrive</th>
+		<th>From</th>
+		<th>To</th>
+
+
+
+	{% for line in flights %}
+		<tr>
+			<td>{{line['ticket_ID']}}</td>
+			<td>{{line['airplane_ID']}}</td>
+			<td>{{line['airline_name']}}</td>
+			<td>{{line['flight_num']}}</td>
+			<td>{{line['sold_price']}}</td>
+			<td>{{line['status']}}</td>
+			<td>{{line['departure_date_time']}}</td>
+			<td>{{line['arrival_date_time']}}</td>
+			<td>{{line['departure_airport_code']}}</td>
+			<td>{{line['arrival_airport_code']}}</td>
+			
+		</tr>
+	{% endfor %}
+	</table>
+{% endif %}
+
+
+
+
+
+{% if ratings %}
+	 <h2>Your Ratings</h2> 
+
+	<style type="text/css">
+		table, th, td{
+			border: 1px solid black;
+		}
+	</style>
+
+	<table>
+		<th>Flight Number</th>
+		<th>Rating</th>
+		<th>Comment</th>
+
+	{% for line in ratings %}
+		<tr>
+			<td>{{line['flight_num']}}</td>
+			<td>{{line['rating']}}</td>
+			<td>{{line['comment']}}</td>
+		</tr>
+	{% endfor %}
+	</table>
+{% endif %}
+
+{% if show_button %}
+	<a href="/logout">Logout</a>
+{% endif %}
+
+</body>
+
+
+</html>

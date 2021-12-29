@@ -1,0 +1,48 @@
+<html>
+<head>
+</head>
+<body>
+
+
+<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+</style>
+
+
+{% if posts %}
+	<table>
+		<th>1 year revenue</th>
+
+	{% for line in posts %}
+		<tr>
+			<td>{{posts['sum(ticket.sold_price)']}}</td>
+		</tr>
+	{% endfor %}
+	</table>
+{% endif %}
+
+{% if threemonths %}
+	<table>
+			<th>3 months revenue</th>
+		{% for line in threemonths %}
+		<tr>
+			<td>{{threemonths['sum(ticket.sold_price)']}}</td>
+		</tr>
+	{% endfor %}
+	</table>
+{% endif %}
+
+{% if not threemonths and not posts %}
+	<h1>No Revenue!</h1>
+{% endif %}
+
+<a href="/staff_home"><button> Back </button></a>
+
+<a href="/logout">Logout</a>
+
+</body>
+
+
+</html>

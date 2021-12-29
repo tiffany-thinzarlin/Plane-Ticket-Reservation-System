@@ -1,0 +1,23 @@
+<html>
+    <h1>Please Enter Your Details</h1>
+    <form action="/purchase_ticket" method="POST">
+        Flight Number: <input type="text" name = "flight number" placeholder="Enter Here" required/></br>
+        Departure Date and time: <input type="datetime-local" name = "date time" required/></br>
+        Card Type: <select name="card type">
+            <option value="debit">Debit</option>
+            <option value="credit">Credit</option>
+          </select> </br>
+        Card Number: <input type="number" name = "card number" placeholder="Enter Here" required/></br>
+        Name on Card: <input type="text" name = "name on card" placeholder="Enter Here" required/></br>
+        Card Expiration Date: <input type="date" name = "expiration date" required/></br>
+        <input type="submit" value = Purchase />
+        {% if error %}
+            <p class="error"><strong>Error:</strong> {{error}}</p>
+        {% endif %}
+    </form>
+
+    
+
+
+
+</html>

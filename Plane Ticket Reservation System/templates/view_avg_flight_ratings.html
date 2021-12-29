@@ -1,0 +1,33 @@
+<html>
+<head>
+</head>
+<body>
+
+<a href="/view_flight_ratings"><button>View All Flight Ratings</button></a>
+
+<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+</style>
+
+<table>
+	<th>Flight Number</th>
+	<th>Average Rating</th>
+
+{% for line in posts %}
+	<tr>
+		<td>{{line['flight_num']}}</td>
+		<td>{{line['avg(rate.rating)']}}</td>
+	</tr>
+{% endfor %}
+</table>
+
+<a href="/staff_home"><button> Back </button></a>
+
+<a href="/logout">Logout</a>
+
+</body>
+
+
+</html>

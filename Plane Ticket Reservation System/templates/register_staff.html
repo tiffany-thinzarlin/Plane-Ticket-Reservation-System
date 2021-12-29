@@ -1,0 +1,20 @@
+<html>
+<head>
+</head>
+<body>
+<form action="/register_staff" method="POST">
+	Username: <input type="text" name = "username" placeholder="username" required/> </br>
+	Password: <input type="password" name = "password" placeholder="password" required/></br>
+	Airline: <input type="text" name = "Airline" placeholder="Airline" required/></br>
+	First Name: <input type="text" name = "First Name" placeholder="First Name" required/></br>
+	Last Name: <input type="text" name = "Last Name" placeholder="Last Name" required/></br>
+	Phone Number: <input type="tel" name="Phone Number" placeholder="Phone Number" required/></br>
+	Date Of Birth: <input type="date" name = "Date of Birth" placeholder="Airline" required/></br>
+	<input type="submit" value = Register />
+	{% if error %}
+		<p class="error"><strong>Error:</strong> {{error}}</p>
+	{% endif %}
+</form>
+<a href="/">Go back</a>
+</body>
+</html>
